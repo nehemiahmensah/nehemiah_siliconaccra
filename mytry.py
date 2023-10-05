@@ -20,7 +20,7 @@ info = input("Enter your age ")
 #     level = input("What is your name? ")
 # else: print(f"Your age is {info} \n Your name is {level}")
 if "." in info:
-    print("True")
+    info = info.isnumeric
     while info.isnumeric() != True :
         print("ERROR!!! \nPlease enter a valid input")
         info = input("Enter your age ")
