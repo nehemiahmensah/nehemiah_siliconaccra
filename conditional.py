@@ -26,13 +26,15 @@ class students:
     def __init__(self, name, subject, marks):
         self.name = name 
         self.subject = subject
-        self.marks = marks 
+        self.marks = int(marks)
+        self.level = 200
     
     def display():
         return "shaaa"
     
 me = students("nii","math",100)
 print(me.display())
+
 
 
 

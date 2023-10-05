@@ -9,7 +9,7 @@ class Human:
     name              = "" 
     nostril           = 0
 
-#constructor
+#constructor - function that allows you create an instance of a  class -- 
 
     def __init__(self, name, eyes, number_of_legs, number_of_hands, number_of_ears, mouth):
         self.name = name
