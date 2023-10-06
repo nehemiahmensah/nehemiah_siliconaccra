@@ -28,3 +28,4 @@ with open("./resources/movies.csv", "r") as file:
     print(file.name)
     print(file.read())
     
+    
