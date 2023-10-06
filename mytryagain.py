@@ -13,7 +13,7 @@
 # print(entry2)
 
 guf = input("Enter number ")
-# guf = guf.isnumeric()
+guf = guf.isnumeric()
 # print(type(guf))
 
 # if guf.isnumeric() == True:
