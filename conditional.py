@@ -32,7 +32,7 @@ class students:
     def display():
         return "shaaa"
     
-me = students("nii","math",100)
+me = students()
 print(me.display())
 
 

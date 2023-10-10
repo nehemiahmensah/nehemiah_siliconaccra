@@ -1,0 +1,47 @@
+#FUNCTIONALITY
+#A USER SHOULD BE ABLE TO ADD A TASK
+#A USER SHOULD BE ABLE TO EDIT A TASK
+#A USER SHOULD BE ABLE TO DELETE A TASK
+
+# FEATURES
+# TASK MANAGEMENT 
+# A. ADD A TASK
+# B. VIEW ADDED TASK
+# C. EDIT ADDED TASK'
+# D. VIEW ALL TASS
+# E. REMOVE A TASK
+# F. REMOVE ALL TASKS
+
+# A. ADDING A TASK
+# ASK USER FOR THE NAME OF TASK
+# ASK USER FOR DATE TIME
+# TAKE DESCRIPTION
+
+# SYSTEM REQUIREMENTS
+# OPERATING SYSTEM(PLATFORM INDEPENDENT)
+# PROGRAMMING LANG -- PYTHON
+# USER INTERFACE -- CONSOLE
+
+# #ENTITY DIAGRAAM
+# USER ---- CREATES ---- A TAK
+# USER ---- EDITS ---- A TASK
+# USER ----- REMOVES ---- A TASK
+# USER ---- VIEWS--------- A TASK
+
+# U CAN PUT 1 INFRONT OF USER AND PUT N IN FROM OF CREATES
+
+# CLASS DEFININTION
+# TASK(ATTRIBUTES,METHODS)
+# TASK HAS (NAME,DATE,TIME,NOTES)  --- METHODS(ADD,EDIT,REMOVEE,VIEW TASK, VIEW ALL TASK)
+class Todo:
+    def edit(self, name, date,time):
+        self.name = name
+        self.date = date
+        self.time = time
+        
+    def view(self):
+        return(self.name,self.date,self.time)
+    
+    def test(self):
+        print("this works")
+
