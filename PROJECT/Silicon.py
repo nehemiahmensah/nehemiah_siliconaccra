@@ -11,16 +11,20 @@ class Student:
         self.contact = contact
 
     def sign_up():
-        pass
+        first_name = input("Enter your first name: ")
+        last_name  = input("What is your last name: ")
+
 
     def log_in():
         pass
 
     def course(self,innovation_school,innovation_studio,start_up_funding,software_development,data_engineering,innovation_partnership):
-        if
+        #if
+        pass
         return
     
     def pay_fees():
         return
     
-
+#student = Student()
+Student.sign_up()
