@@ -1,6 +1,6 @@
-# file = open("./resources/movies.txt", "a")
-# print(file.name)
-# #print(file.read())
+file = open("movies.txt", "a")
+print(file.name)
+#print(file.read())
 
 # # for line in file:
 # #     print(line)
@@ -24,8 +24,8 @@
 # except FileNotFoundError:
 #         print("File not found")
 
-with open("./resources/movies.csv", "r") as file:
-    print(file.name)
-    print(file.read())
+# with open("./resources/movies.csv", "r") as file:
+#     print(file.name)
+#     print(file.read())
     
     

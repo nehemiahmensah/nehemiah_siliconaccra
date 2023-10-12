@@ -12,9 +12,19 @@
 
 # print(entry2)
 
-guf = input("Enter number ")
-guf = guf.isnumeric()
-# print(type(guf))
+# guf = input("Enter number ")
+# guf = guf.isnumeric()
+# # print(type(guf))
 
 # if guf.isnumeric() == True:
 #     print("You did it")
+
+
+contact = int(input("Enter the contact"))
+contacta = str(contact)
+print(len(contacta))
+
+#print(len(contact))
+
+if len(contacta) == 10:
+    print("successful")
