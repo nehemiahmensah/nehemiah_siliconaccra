@@ -24,6 +24,7 @@ class Student:
             #first_name = input("Enter your first name: ")
             try:
                 first_name = input(" \n Enter your first name: ")
+                Student().first_name = first_name
                 first_name1 = first_name.isalpha()
                 if first_name1 == True:
         
@@ -314,6 +315,11 @@ elif choice1 == 2:
 else:
     print("Please choose 1 or 2")
 
+meee = Student()
+
+if meee == 1:
+    momo = print("Enter Mobile Money Number: ")
+    meee.first_name
 # with open('Database.csv', "r") as file:
 #     #print(file.read())
 #     for line in file:
