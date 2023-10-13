@@ -18,12 +18,12 @@ class Student:
         self.contact = contact
 
     def sign_up():
-
+        print("\n SILICON SIGN UP PAGE")
         # # FIRST NAME SETUP
         while True:
             #first_name = input("Enter your first name: ")
             try:
-                first_name = input("Enter your first name: ")
+                first_name = input(" \n Enter your first name: ")
                 first_name1 = first_name.isalpha()
                 if first_name1 == True:
         
@@ -249,15 +249,52 @@ class Student:
                 saved_pass = df['PASSWORD'].tolist()
 
                 if entry_email in saved_mail and entry_pass in saved_pass:
-                    print("Successful")
+                    Student.menu()
                     break
                 else:
                     print("Unsuccessful Login Attempt. \n Try Again \n \n")
                     break
             except ValueError:
                 print("Invalid Entry")
+    
+    
+    def main_menu():
+        print("\n MENU \n 1. MOMO \n 2. CARD")
+        while True:
+            try:
+                main_choice = input("Enter option (number only): ")
+                main_choice = int(main_choice)
+                if 1 <= main_choice <= 2:
+                    return main_choice
+                else:
+                    print("Invalid input. Please enter a number between 1 and 5.")
+            except ValueError:
+                print("Invalid input. Please enter a numeric value.")
 
 
+    def menu():
+        print ("-- SILICON --\n 1. About Us 2. Classroom 3. Community 4. Library 5. Pinboard 6. Results 7. Fees 8. Certification ")  
+        choice = int(input("Select menu "))
+        try:
+            if choice == 1:
+                print("\n This is about us")
+            
+            elif choice == 2:
+                print("1. lecture Slides \n 2. Notes \n 3. COURSE Outline \n 4. Time Table \n 5. Live Class")
+
+            elif choice == 3:
+                print("Welcome to the Silicon Chat App")
+
+            elif choice == 4:
+                print("\n 1. Kaggle \n 2. Geek for Geek \n 3. Git Hub \n 4. Find \n 5. Youtube ")
+            elif choice == 5:
+                print("Pay fees: Follow the prompts to pay fees")
+                Student.main_menu()
+
+            else:
+                print("Enter a Valid Input")
+        except ValueError:
+            print("Invalid Input")
 
     def course(self,innovation_school,innovation_studio,start_up_funding,software_development,data_engineering,innovation_partnership):
         #if
@@ -268,7 +305,7 @@ class Student:
         return
     
 #student = Student()
-print("Choose an option: 1. Sign Up   2. Log In")
+print("\n WELCOME TO SILICON (SAIS) \n \n Choose an option: 1. Sign Up   2. Log In \n")
 choice1 = int(input("Enter your option here: "))
 if choice1 == 1:
     Student.sign_up()
@@ -276,6 +313,7 @@ elif choice1 == 2:
     Student.log_in()
 else:
     print("Please choose 1 or 2")
+
 # with open('Database.csv', "r") as file:
 #     #print(file.read())
 #     for line in file:
