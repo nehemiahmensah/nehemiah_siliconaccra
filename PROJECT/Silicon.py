@@ -4,27 +4,15 @@ import datetime
 import csv
 import pandas as pd
 
-# CLASS  AND METHODS SETUP
-class Student:
-    def __init__(self,first_name,last_name,email,course,password,dob,gender,student_id,contact):
-        self.first_name = first_name
-        self.last_name  = last_name
-        self.email = email
-        self.course = course
-        self.password = password
-        self.dob = dob
-        self.gender = gender
-        self.student_id = student_id
-        self.contact = contact
-
-    def sign_up():
+class Admission:
+    def signup():
         print("\n SILICON SIGN UP PAGE")
         # # FIRST NAME SETUP
         while True:
             #first_name = input("Enter your first name: ")
             try:
                 first_name = input(" \n Enter your first name: ")
-                Student().first_name = first_name
+                first_name1 = first_name
                 first_name1 = first_name.isalpha()
                 if first_name1 == True:
         
@@ -198,22 +186,6 @@ class Student:
             except ValueError:
                 print("Invalid Entry")
 
-        #CONFIRM TO CREATE AN AUTO INCREMENT FOR ID            
-        # while True:
-        #     try:
-        #         confirm = int(input("\n Are you sure you want to submit these details? \n Choose \n 1. Confirm \n 2. Exit"))
-        #         if confirm == 1:
-                
-        #         elif confirm == 2:
-        #             return
-        #         else:
-        #             print("Please enter 1 or 2")
-        #     except ValueError:
-        #         print("Invalid Entry")
-            
-        #/Users/siaccrainnovationsch/Documents/Nii/version_control/PROJECT/Database.csv 
-        #/Users/siaccrainnovationsch/Documents/Nii/version_control/PROJECT/Silicon.py       
-        #write to file
         with open('Database.csv', "a") as file:
             data   = first_name,last_name,dob,email,gender,password2,course,contact 
             writer= csv.writer(file)
@@ -224,20 +196,15 @@ class Student:
         #read csv
 
         df = pd.read_csv(file_path)
-        print(df)
 
-        # print(f"""{first_name}
-        #         {last_name}
-        #            {dob}
-        #             {course}
-        #             {contact}
-        #                 {email}
-        #         {gender}
 
-        #     """)       
+    
+# admit = Admission
+# admit.signup()
 
-#asdfa@adsada
-    def log_in():
+class Student(Admission):
+    def login():
+        super(Student)
         while True:
             print("Welcome to Silicon \n Kindly Log In \n")
             try:
@@ -257,75 +224,183 @@ class Student:
                     break
             except ValueError:
                 print("Invalid Entry")
-    
-    
-    def main_menu():
+    def menu():
+            try:
+                print ("-- SILICON --\n 1. About Us 2. Resources 3. Fee Payment 4. Exit")  
+                choice = int(input("Select menu "))
+                
+                if choice == 1:
+                    print("\n This is about us")
+                
+                elif choice == 2:
+                    print("1. Lecture Slides \n 2. Notes \n 3. Course Outline \n 4. Time Table\n 5. Kaggle \n 6. Git Hub")
+
+                elif choice == 3:
+                    print("Pay fees: Follow the prompts to pay fees")
+                    Student.fee_menu()
+
+                elif choice == 4:
+                    return               
+
+                else:
+                    print("Enter a Valid Input")
+            except ValueError:
+                print("Invalid Input")
+
+    def fee_menu():
         print("\n MENU \n 1. MOMO \n 2. CARD")
         while True:
             try:
                 main_choice = input("Enter option (number only): ")
                 main_choice = int(main_choice)
-                if 1 <= main_choice <= 2:
+                if main_choice == 1:
+                    Student.momo()
+                    print("Invalid Input")
                     return main_choice
                 else:
                     print("Invalid input. Please enter a number between 1 and 5.")
             except ValueError:
                 print("Invalid input. Please enter a numeric value.")
+    
+    def momo():
+        while True:
+            try:
+                momo_no = int(input("\n Enter Momo No.: "))
+                momo1 = str(momo_no)
+                if len(momo1) == 9:
+                   break
+                else:
+                     print("Incorrect Number")            
+            except ValueError:
+                print("Invalid Input")
 
+        while True:
+                try:
+                   amount = float(input("\n Enter amount you wish to pay: "))
+                   if amount > 0:
+                    break
+                   else: print("Enter a value greater than 0")   
+                except ValueError:
+                    print("Invalid Input")
+                  
+        
+        while True:
+                try:
+                    email = input("\n Email: ")
+                    file_path = 'Database.csv'
+                    df = pd.read_csv(file_path)
+                
+                    saved_mail = df['EMAIL'].tolist()
 
-    def menu():
-        print ("-- SILICON --\n 1. About Us 2. Classroom 3. Community 4. Library 5. Pinboard 6. Results 7. Fees 8. Certification ")  
-        choice = int(input("Select menu "))
-        try:
-            if choice == 1:
-                print("\n This is about us")
+                    if email in saved_mail:
+                            break
+                    else:
+                            print("Email does not match")
+                            
+                except ValueError:
+                        print("Invalid Input")
+        
+        while True:
+                try:
+                    pin = int(input("\n Enter your pin to confirm payment: "))
+                    pin1 = str(pin)
+                    if len(pin1) == 4:
+                        print("Payment Successful")
+                        Student.menu()
+                        break 
+                    else:
+                        print("Invalid Pin")                     
+                except ValueError:
+                     print("Invalid Input")
             
-            elif choice == 2:
-                print("1. lecture Slides \n 2. Notes \n 3. COURSE Outline \n 4. Time Table \n 5. Live Class")
 
-            elif choice == 3:
-                print("Welcome to the Silicon Chat App")
+        
+                                  
+                   
+                
 
-            elif choice == 4:
-                print("\n 1. Kaggle \n 2. Geek for Geek \n 3. Git Hub \n 4. Find \n 5. Youtube ")
-            elif choice == 5:
-                print("Pay fees: Follow the prompts to pay fees")
-                Student.main_menu()
+    def card():
+            #CARD NUMBER
+            while True:
+                
+                try:
+                    card_number = int(input("Enter your card number: "))
+                    card_string = str(card_number)
 
-            else:
-                print("Enter a Valid Input")
-        except ValueError:
-            print("Invalid Input")
+                    if len(card_string) == 10:
+                        break
 
-    def course(self,innovation_school,innovation_studio,start_up_funding,software_development,data_engineering,innovation_partnership):
-        #if
-        pass
-        return
-    
-    def pay_fees():
-        return
-    
-#student = Student()
-print("\n WELCOME TO SILICON (SAIS) \n \n Choose an option: 1. Sign Up   2. Log In \n")
-choice1 = int(input("Enter your option here: "))
-if choice1 == 1:
-    Student.sign_up()
-elif choice1 == 2:
-    Student.log_in()
-else:
-    print("Please choose 1 or 2")
+                    else:
+                        print("Please try again")
+                except ValueError:
+                    print("Enter valid number")
 
-meee = Student()
+            #CVV
 
-if meee == 1:
-    momo = print("Enter Mobile Money Number: ")
-    meee.first_name
-# with open('Database.csv', "r") as file:
-#     #print(file.read())
-#     for line in file:
-#         print(line)
-#     # reader = csv.reader(file)
-#     # for record in reader:
-#     #     FIRST_NAME, LAST_NAME, DOB, EMAIL, GENDER, PASSWORD, COURSE, CONTACT = record
-#     #     print(f"{EMAIL,PASSWORD}")
-#     # print(reader.read())
+            while True:
+
+                try:
+                    cvv_number = int(input("Enter the CVV number behind your card: "))
+                    cvv_string = str(cvv_number)
+                   
+                    if len(cvv_string) == 3:
+                        break
+
+                    else:
+                        print("Please try again")
+                except ValueError:
+                    print("Enter valid CVV number")
+
+            #PIN
+
+            while True:
+
+                try:
+                    pin_number = int(input("Enter yor PIN number: "))
+                    pin_string = str(pin_number)
+                   
+                    if len(pin_string) == 4:
+                        break
+
+                    else:
+                        print("Please try again")
+                        
+                except ValueError:
+                    print("Enter valid PIN number")
+                    break
+
+            
+            #EMAIL
+            while True:
+                try:
+                    email = input("Email: ")
+                    file_path = 'Database.csv'
+                    df = pd.read_csv(file_path)
+                
+                    saved_mail = df['EMAIL'].tolist()
+
+                    if email in saved_mail:
+                        print("Payment Successful")
+                        break
+                    else:
+                        print("Email does not match")
+                
+                except ValueError:
+                    print("Invalid Input")
+
+
+print("Welcome to Silicon Inovation Accra School (SAIS)\n")
+print("1. Sign Up  2. Log In")
+try:
+    home_choice = int(input("\nSelect an option "))
+    if home_choice == 1:
+        Admission.signup()
+    elif home_choice == 2:
+        Student.login()
+
+    else:
+        print("Please select 1 or 2")
+except ValueError:
+    print("Invalid Input")
+#Admission.signup()
+# Student.login()
