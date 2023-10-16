@@ -1,0 +1,10 @@
+numpy - numerical python
+scipy - scientific python
+
+pandas
+seaborn
+matplotlib
+scikit learn - machine learning
+
+
+in all the above --- will do linera algebra and statistics and probability

@@ -389,18 +389,21 @@ class Student(Admission):
                     print("Invalid Input")
 
 
-print("Welcome to Silicon Inovation Accra School (SAIS)\n")
+print("\n Welcome to Silicon Inovation Accra School (SAIS)\n")
 print("1. Sign Up  2. Log In")
-try:
-    home_choice = int(input("\nSelect an option "))
-    if home_choice == 1:
-        Admission.signup()
-    elif home_choice == 2:
-        Student.login()
+while True:
+    try:
+        home_choice = int(input("\nSelect an option "))
+        if home_choice == 1:
+            Admission.signup()
+            break
+        elif home_choice == 2:
+            Student.login()
+            break
 
-    else:
-        print("Please select 1 or 2")
-except ValueError:
-    print("Invalid Input")
+        else:
+            print("Please select 1 or 2")
+    except ValueError:
+        print("Invalid Input")
 #Admission.signup()
 # Student.login()
